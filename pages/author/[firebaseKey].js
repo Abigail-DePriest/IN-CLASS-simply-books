@@ -4,42 +4,37 @@
 // const router = useRouter();
 // const { firebaseKey } = router.query;
 
-/* eslint-disable @next/next/no-img-element */
-/* import React, { useEffect, useState } from 'react';
+// eslint-disable @next/next/no-img-element
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { viewBookDetails } from '../../api/mergedData';
+import { viewAuthorDetails } from '../../api/mergedData';
 
-export default function ViewBook() {
-  const [bookDetails, setBookDetails] = useState({});
+export default function ViewAuthor() {
+  const [authorDetails, setAuthorDetails] = useState({});
   const router = useRouter();
 
   // TODO: grab firebaseKey from url
-  //const { firebaseKey } = router.query;
+  const { firebaseKey } = router.query;
 
   // TODO: make call to API layer to get the data
-  /* useEffect(() => {
-    viewBookDetails(firebaseKey).then(setBookDetails);
+  useEffect(() => {
+    viewAuthorDetails(firebaseKey).then(setAuthorDetails);
   }, [firebaseKey]);
 
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="d-flex flex-column">
-        <img src={bookDetails.image} alt={bookDetails.title} style={{ width: '300px' }} />
+        <img src={authorDetails.image} alt={authorDetails.first_name} style={{ width: '300px' }} />
       </div>
       <div className="text-white ms-5 details">
         <h5>
-          {bookDetails.title} by {bookDetails.authorObject?.first_name} {bookDetails.authorObject?.last_name}
-          {bookDetails.authorObject?.favorite ? ' 🤍' : ''}
+          {authorDetails.first_name}
+          {authorDetails.last_name}
+          {authorDetails.favorite ? ' 🤍' : ''}
         </h5>
-        Author Email: <a href={`mailto:${bookDetails.authorObject?.email}`}>{bookDetails.authorObject?.email}</a>
-        <p>{bookDetails.description || ''}</p>
+        Author Email: <a href={`mailto:${authorDetails.email}`}>{authorDetails.email}</a>
         <hr />
-        <p>
-          {bookDetails.sale
-            ? `🏷️ Sale $${bookDetails.price}`
-            : `$${bookDetails.price}`}
-        </p>
       </div>
     </div>
   );
-} */
+}
