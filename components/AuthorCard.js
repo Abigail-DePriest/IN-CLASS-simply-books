@@ -38,10 +38,11 @@ function AuthorCard({ authorObj, onUpdate }) {
 AuthorCard.propTypes = {
   authorObj: PropTypes.shape({
     email: PropTypes.string,
-    firebaseKey: PropTypes.bool,
+    firebaseKey: PropTypes.string,
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     image: PropTypes.string,
+    favorite: PropTypes.bool,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
